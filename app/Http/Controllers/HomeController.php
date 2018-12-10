@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\SendMessageRequest;
 
+
+
 class HomeController extends Controller
 {
     protected $pages;
@@ -32,8 +34,9 @@ class HomeController extends Controller
         $homepage = $this->content->homepage();
         $blocs    = $this->content->menu('home');
         $arrets   = $this->jurisprudence->arrets(['limit' => 5]);
+        $pub      = $homepage->blocs;
 
-        return view('frontend.index')->with(['homepage' => $homepage, 'blocs' => $blocs, 'arrets' => $arrets]);
+        return view('frontend.index')->with(['homepage' => $homepage, 'blocs' => $blocs, 'arrets' => $arrets, 'pub' => $pub]);
     }
 
     /**
@@ -45,8 +48,9 @@ class HomeController extends Controller
     {
         $auteurs = $this->jurisprudence->authors();
         $page    = $this->content->page($this->pages['auteur']);
+        $pub     = $page->blocs;
 
-        return view('frontend.auteur')->with(['auteurs' => $auteurs,'page' => $page]);
+        return view('frontend.auteur')->with(['auteurs' => $auteurs,'page' => $page, 'pub' => $pub]);
     }
 
     /**
@@ -60,6 +64,9 @@ class HomeController extends Controller
         $analyses   = $this->jurisprudence->analyses();
         $years      = $this->jurisprudence->years();
 
+        $page    = $this->content->page($this->pages['jurisprudence']);
+        $pub     = $page->blocs;
+
         list($categories,$parents) = $this->jurisprudence->categories();
 
         return view('frontend.jurisprudence')->with([
@@ -68,6 +75,7 @@ class HomeController extends Controller
             'annees'     => $years,
             'categories' => $categories,
             'parents'    => $parents->pluck('title','id')->all(),
+            'pub'        => $pub
         ]);
     }
 
@@ -85,7 +93,10 @@ class HomeController extends Controller
         $blocs = isset($newsletter['blocs']) ? $newsletter['blocs'] : collect([]);
         $campagne = isset($newsletter['campagne']) ? $newsletter['campagne'] : null;
 
-        return view('frontend.campagne')->with(['campagne' => $campagne, 'blocs' => $blocs, 'archives' => $archives]);
+        $page    = $this->content->page($this->pages['campagne']);
+        $pub     = $page->blocs;
+
+        return view('frontend.campagne')->with(['campagne' => $campagne, 'blocs' => $blocs, 'archives' => $archives, 'pub' => $pub]);
     }
 
     /**
@@ -96,8 +107,9 @@ class HomeController extends Controller
     public function page($id)
     {
         $page = $this->content->page($id);
+        $pub  = $page->blocs;
 
-        return view('frontend.page')->with(['page' => $page]);
+        return view('frontend.page')->with(['page' => $page, 'pub' => $pub]);
     }
 
     /**
@@ -108,8 +120,9 @@ class HomeController extends Controller
     public function contact()
     {
         $page = $this->content->page($this->pages['contact']);
+        $pub  = $page->blocs;
 
-        return view('frontend.contact')->with(['page' => $page]);
+        return view('frontend.contact')->with(['page' => $page, 'pub' => $pub]);
     }
 
 

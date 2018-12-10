@@ -3,13 +3,11 @@
 
 <div class="row">
     <div class="col-md-8 col-xs-12">
-        <h1 class="title uppercase">{{ $page->title }}</h1>
-
-        <hr/>
+        <h1 class="title uppercase">{{ $page->title }}</h1><hr/>
 
         @if(!$auteurs->isEmpty())
             @foreach($auteurs as $auteur)
-            <div class="media">
+            <div class="media media-author">
                 <div class="media-left">
                     <img width="100" class="media-object" src="{{ $auteur->photo }}" alt="{{ $auteur->name }}">
                 </div>
@@ -40,6 +38,7 @@
     <!-- Sidebar  -->
     <div id="sidebar-right" class="col-md-4 col-xs-12">
         @include('partials.subscribe')
+        @include('partials.pub')
         @include('partials.latest')
     </div>
     <!-- END Sidebar  -->

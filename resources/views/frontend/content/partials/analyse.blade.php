@@ -1,12 +1,12 @@
 <div class="post">
-    <div class="post-title">
+    <div class="post-title analyses-list">
         <a class="anchor_top" name="analyse_{{ $analyse->id }}"></a>
         <h2 class="title">Analyse de l'arrêt {{ $arret->reference }}</h2>
         @if(!empty($analyse->authors))
             @foreach($analyse->authors as $author)
                 <div class="row">
                     <div class="col-md-2">
-                        <img width="85" class="media-object" src="{{ $author->photo }}" alt="{{ $author->name }}">
+                        <img class="media-object" src="{{ $author->photo }}" alt="{{ $author->name }}">
                     </div>
                     <div class="col-md-10">
                         <h3 style="text-align: left;font-family: sans-serif; color:#000; font-size: 13px; font-weight: bold;">{{ $author->name }}</h3>

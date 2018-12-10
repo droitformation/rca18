@@ -6,17 +6,8 @@
            @if(!empty($categories))
 
               <select id="arret-chosen" name="category_check" data-placeholder="Choisir une ou plusieurs catégories" style="width:100%" multiple class="chosen-select category">
-                  @foreach($categories as $parent_id => $liste)
-                      @if(isset($parents[$parent_id]))
-                          <?php $label = $parents[$parent_id]; ?>
-                      @else
-                          <?php $label = 'Général'; ?>
-                      @endif
-                      <optgroup label="{{ $label }}">
-                          @foreach($liste as $categorie)
-                              <option value="c{{ $categorie->id }}">{{ $categorie->title }}</option>
-                          @endforeach
-                      </optgroup>
+                  @foreach($categories as $categorie)
+                      <option value="c{{ $categorie->id }}">{{ $categorie->title }}</option>
                   @endforeach
               </select>
 

@@ -33,11 +33,13 @@
         </form><!--END CONTACT FORM-->
     </div>
     <div class="col-md-4">
-        <h3>Faculté de droit</h3>
-        <p><strong>Adresse</strong>: Avenue du 1er-Mars 26, 2000 Neuchâtel<br>
-            <strong>Telephone</strong>: +41 32 / 718 12 22<br>
-            <strong>Email</strong>: droit.formation@unine.ch
-        </p>
+        <div class="widget widget-contact-bloc">
+            <h3>Faculté de droit</h3>
+            <p><strong>Adresse</strong>: Avenue du 1er-Mars 26, 2000 Neuchâtel<br>
+                <strong>Telephone</strong>: +41 32 / 718 12 22<br>
+                <strong>Email</strong>: droit.formation@unine.ch
+            </p>
+        </div>
     </div>
 </div><!--END CONTENT-->
 

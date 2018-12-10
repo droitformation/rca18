@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/filter.css');?>">
         <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/chosen.css');?>">
         <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/styleRCA.css');?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/responsive.css');?>">
         <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/jquery.fancybox.min.css');?>">
         <!-- Javascript Files
         ================================================== -->
@@ -33,60 +34,56 @@
 
     <body>
     <div class="container">
-	<div id="blue-line"></div>
-        <!-- START HEADER -->
-        <div class="row">
-             <div class="col-md-3 col-sm-3 col-xs-6">
-             <a href="{{ url('/') }}"><div id="logo"></div></a>
-             </div>
-             <div class="col-md-7 col-sm-7 col-xs-7">
-                <!-- Navigation  -->
+        <div id="blue-line"></div>
+            <!-- START HEADER -->
+            <div id="header-main">
+                 <a href="{{ url('/') }}" id="logo"><img src="{{ asset('images/rcassurances.svg') }}"></a>
                 @include('partials.navigation')
-             </div>
-            <div class="col-md-2 col-sm-2 logo-nav text-right">
-                <a target="_blank" href="http://www2.unine.ch/droit"><img src="{{ asset('images/UniNE_logo_90x58.png') }}" alt=""></a>
+                <a target="_blank" href="http://www2.unine.ch/droit"><img style="max-width: 100%;" src="{{ asset('images/UniNE_logo_90x58.png') }}" alt=""></a>
             </div>
-        </div>
-        <!-- START CONTENT -->
-            <section>
+            <!-- START CONTENT -->
+                <section>
+                    @include('partials.message')
+                    <!-- Contenu -->
+                    @yield('content')
+                    <!-- Fin contenu -->
+                </section><!--END CONTENT-->
 
-                @include('partials.message')
-
-                <!-- Contenu -->
-                @yield('content')
-                <!-- Fin contenu -->
-
-            </section><!--END CONTENT-->
-
-            <hr/></div>
-            <!-- Soutien -->
-            <div class="container"><div class="row" style="margin-left:25%; margin-right:25%">
-            <!--div class="col-md-12"-->
-            	<div class="bloc-soutien">
-                <a href="http://www.versicherungsfachanwalt.ch" target="_blank"><img src="{{ asset('frontend/images/pict_FSA_77x80.jpg') }}"></a>
-                    <h5>Association des avocats spécialistes FSA<br>Responsabilité civile & droit des assurances</h5>
-                    Tous les membres ont acquis une formation complémentaire étendue ou disposent déjà de vastes connaissances
-                    dans le domaine du droit de la responsabilité civile et du droit des assurances.
+                <hr/></div>
+                <!-- Soutien -->
+                <div class="container">
+                    <div class="row">
+                        @if(isset($pub))
+                            <?php $soutiens = collect($pub)->where('position','footer'); ?>
+                            @if(!$soutiens->isEmpty())
+                                @foreach($soutiens as $soutien)
+                                    <div class="bloc-soutien bloc-soutien-footer">
+                                        <a target="_blank" href="{{ $soutien->url }}"><img height="50px" src="{{ $soutien->image }}" alt="{{ $soutien->title }}" /></a>
+                                        <h5>{{ $soutien->title }}</h5>
+                                        {!! strip_tags($soutien->content) !!}
+                                    </div>
+                                @endforeach
+                            @endif
+                        @endif
+                    </div><hr/>
                 </div>
+                <!-- Fin de soutien -->
+                <!-- START FOOTER -->
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p><strong>Faculté de droit, Avenue du 1er-Mars 26, 2000 Neuchâtel</a></strong></p>
+                                <p class="copyright">Copyright &copy; . Tous droits réservés.</p>
+                            </div><!--END ONE-->
+                            <div class="col-md-4 text-right"></div>
+                        </div>
+                    </div><!--END SECTION-->
+                </footer><!--END FOOTER-->
+                <!-- END FOOTER -->
 
             </div>
-            <hr/></div>
-            <!-- Fin de soutien -->
-            <!-- START FOOTER -->
-            <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <p><strong>Faculté de droit, Avenue du 1er-Mars 26, 2000 Neuchâtel</a></strong></p>
-                        <p class="copyright">Copyright &copy; . Tous droits réservés.</p>
-                    </div><!--END ONE-->
-                    <div class="col-md-4 text-right"></div>
-                </div>
-                </div><!--END SECTION-->
-            </footer><!--END FOOTER-->
-            <!-- END FOOTER -->
-
-        </div></div><!-- END Container -->
+        </div><!-- END Container -->
 
     </body>
 </html>

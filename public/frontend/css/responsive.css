@@ -1,0 +1,149 @@
+@media only screen and (min-width: 850px) and (max-width: 991px) {
+    .hide-xs{
+        display: none;
+    }
+
+    .makevisible-xs{
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 750px) and (max-width: 850px) {
+    #header-main{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav > li{
+        display: inline-block;
+    }
+
+    #logo{
+        margin-right: 25px;
+    }
+    #logo img{
+        width:160px;
+        height: 50px;
+    }
+
+    .blocs-homepage{
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+
+    #sidebar-right{
+        margin-top: 5px;
+    }
+    #filter{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .fixed{
+        width: 100%;
+        position: relative;
+        padding: 10px;
+        background: #f5f5f5;
+        height: 100%;
+        margin-bottom: 10px;
+    }
+
+    .widget{
+        margin: 0;
+    }
+
+    #filtering{
+        margin-top: 20px;
+    }
+
+    .hide-xs{
+        display: none;
+    }
+
+    .makevisible-xs{
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 749px) {
+
+    .navbar-nav {
+        float: none;
+        padding: 0 10px;
+        margin-top: 0;
+    }
+
+    .nav > li > a {
+        padding: 10px 5px;
+        font-size: 14px;
+    }
+
+    #header-main{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    header{
+        height: 200px;
+        background-size: cover;
+    }
+
+    .intro-txt h1{
+        font-size: 18px;
+    }
+
+    .banner-title{
+        font-size: 22px;
+    }
+    .blocs-homepage{
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+
+    #sidebar-right{
+        margin-top: 5px;
+    }
+
+    .bloc-soutien{
+        padding: 5px 15px;
+    }
+
+    #filter{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .fixed{
+        width: 100%;
+        position: relative;
+        padding: 10px;
+        background: #f5f5f5;
+        height: 100%;
+        margin-bottom: 10px;
+    }
+
+    .widget{
+        margin: 0;
+    }
+
+    #filtering{
+        margin-top: 20px;
+    }
+
+    .hide-xs{
+        display: none;
+    }
+
+    .makevisible-xs{
+        display: block;
+    }
+
+    .media-object{
+        max-width: 100%;
+    }
+}

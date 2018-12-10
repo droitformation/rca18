@@ -6,7 +6,7 @@
      @include ('partials.shortcuts')
 	<!-- END HEADER -->
     
-<div class="row">
+<div class="row mt-2">
     <div class="col-md-8">
         <h1>La plateforme RC Assurances</h1>
         <hr class="txt"/>
@@ -25,6 +25,7 @@
     <!-- Sidebar  -->
     <div id="sidebar-right" class="col-md-4 col-xs-12">
         @include('partials.subscribe')
+        @include('partials.pub')
         @include('partials.latest')
     </div>
     <!-- END Sidebar  -->

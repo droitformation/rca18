@@ -13,12 +13,7 @@ body {
 	margin:0;
 	font-family:"Source Sans Pro", Helvetica, "Sans serif"; 
 }
-.container {
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	width:1170px;
-	}
+
 #blue-line{
 	display:block;
 	position: relative;
@@ -28,15 +23,22 @@ body {
 	background-color: #0C416E;
 	height:6px;
 	}
-#logo {
+
+#logo img{
 	display:block;
-	float:left;
-	background-image: url(../images/RCassu_178x21_bleu.jpg);
-	background-repeat:no-repeat;
 	width:200px;
-	height: 40px;
-	margin-top:40px;
-	}
+	height: 60px;
+	padding: 10px 0;
+}
+
+#header-main{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 0;
+}
+
 .logo-nav{
 	margin-top: 16px;
 	left:20px;
@@ -47,13 +49,11 @@ body {
 	}	
 .navbar{
 	margin-bottom: 0px;
-	height: 100px;
 	}
 .navbar a {
 	text-transform:uppercase;
 	}
 .navbar-nav {
-	margin-top: 24px;
 	display:block;
 	}	
 .img-portfolio {
@@ -68,6 +68,9 @@ body {
 	float:right;
 	}
 
+.navbar-nav > li > a.active{
+	font-weight: bold;
+}
 /* Home Page Carousel */
 
 header {
@@ -79,28 +82,35 @@ header {
 	background-size: 100% auto;
 	position:relative;
 	height:360px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 20px;
 }
 .small-banner {
 	background-image: url(../../files/books_creativmarket-1170x120.jpg);
 	height: 120px;
-
 }
 .intro-txt {
-	position:relative;
-	top:120px;
-	margin: 5px auto;
 	width: 90%;
 	text-align:center;
-	}
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex: 1;
+}
+
 .intro-txt h1 {
 	color:#FFF;
+	margin-top: 0;
 	}	
 .banner-title {
 	font-size: 56px;
 	font-weight: 600;
 	font-family: "Source Sans Pro", Helvetica, "Sans serif";
 	line-height: 0.8;
-	}
+}
 .italic{
 	font-style:italic;
 	}
@@ -114,6 +124,10 @@ h4 {
 	text-transform:uppercase;
 	font-weight: 600;
 	}
+
+h4.title{
+	color: #000;
+}
 .bloc {
 	float:left;
 	width: 33.33333%;
@@ -157,11 +171,17 @@ h4 {
 	text-align:center;
 	padding:20px 76px;
 	}
+
 .bloc-soutien h5{
 	color:#0C416E;
 	font-size:18px;
 	font-weight: 700;
 	}
+.bloc-soutien-footer{
+	padding:0px;
+	width: 80%;
+	margin: 0 auto;
+}
 .txt{
 	margin: 10px auto 10px auto;	
 	}	
@@ -173,28 +193,10 @@ h4 {
 
 /* Footer Styles */
 
-footer {
-    margin: 20px 0px 0px 10px;
-}
-
 /* Responsive Styles */
 
 @media(max-width:1020px) {
-.container {
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	width:760px;
-	}
-#logo {
-	display:block;
-	float:left;
-	background-image: url(../../files/RCassurances-138x16.png);
-	background-repeat:no-repeat;
-	width:140px;
-	height: 16px;
-	margin-top:36px;
-	}
+
   .customer-img,.img-related {
         margin-bottom: 30px;
     }
@@ -203,7 +205,8 @@ footer {
 	font-size:12px;
 	}
 .navbar{
-	left:0px;
+
+	width: 100%;
 	font-size:12px;
 	}	
 
@@ -393,4 +396,92 @@ details[open] summary:after {
 
 #sidebar-right h4{
 	margin-bottom: 15px;
+}
+
+#sidebar-right{
+	margin-top: 60px;
+}
+
+.mb-2{
+	margin-bottom: 40px;
+}
+.mt-2{
+	margin-top: 40px;
+}
+
+.widget{
+	margin-bottom: 40px;
+	margin-top: 40px;
+}
+
+.widget-contact-bloc{
+	margin-top: 70px;
+}
+
+.media-object{
+	max-width: 100%;
+}
+
+.media-author{
+	margin: 20px 0 30px 0;
+	padding-bottom: 20px;
+	border-bottom: 1px dotted #e6e6e6;
+}
+
+.media-author:last-child{
+	border-bottom: none;
+}
+
+.media-author .media-object{
+	width: 100px;
+	overflow: hidden;
+	border-radius: 5px;
+	border-color:#fff ;
+}
+
+.media-author .bio-body{
+	padding: 0 20px;
+}
+
+.media-author .bio-body h3{
+	font-size: 20px;
+}
+
+.media-author .bio-body h5{
+	margin-top: 15px;
+	font-size: 16px;
+}
+
+.analyse_auteur li h5{
+	margin: 10px 0 5px 0;
+	font-size: 14px;
+}
+
+.analyse_auteur li p{
+	margin-bottom: 10px;
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.hide-xs{
+	display: block;
+}
+.visible-xs{
+	display: none;
+}
+
+.analyses-list ul{
+	margin-top: 20px;
+}
+
+.analyses-list p{
+	margin-bottom: 5px;
+}
+
+footer p{
+	margin-bottom: 0;
+}
+
+footer p.copyright{
+	margin-bottom: 5px;
 }
