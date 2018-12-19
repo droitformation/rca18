@@ -20,6 +20,8 @@
         <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/styleRCA.css');?>">
         <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/responsive.css');?>">
         <link rel="stylesheet" type="text/css" href="<?php echo asset('frontend/css/jquery.fancybox.min.css');?>">
+        <link rel="stylesheet" href="<?php echo asset('frontend/css/sites.css');?>">
+
         <!-- Javascript Files
         ================================================== -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -72,15 +74,16 @@
                 <footer>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-8">
-                                <p><strong>Faculté de droit, Avenue du 1er-Mars 26, 2000 Neuchâtel</a></strong></p>
-                                <p class="copyright">Copyright &copy; . Tous droits réservés.</p>
+                            <div class="col-md-12 text-center">
+                                <p class="text-center"><strong>Faculté de droit, Avenue du 1er-Mars 26, 2000 Neuchâtel</strong></p>
+                                <p class="text-center copyright">Copyright &copy; . Tous droits réservés.</p>
                             </div><!--END ONE-->
-                            <div class="col-md-4 text-right"></div>
                         </div>
                     </div><!--END SECTION-->
                 </footer><!--END FOOTER-->
                 <!-- END FOOTER -->
+
+                @include('partials.logos', ['current' => 'rcassurances'])
 
             </div>
         </div><!-- END Container -->
