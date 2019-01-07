@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <a class="media-left" style="margin-bottom: 5px;" target="_blank" href="{{ $ad->url }}">
-                                    <img style="max-width: 100%" src="{{ $ad->image }}" alt="{{ $ad->title or 'image' }}" />
+                                    <img style="max-width: 100%" src="{{ $ad->image }}" alt="{{ $ad->title ?? 'image' }}" />
                                 </a>
                             </div>
                             <div class="col-md-7">
