@@ -6,7 +6,7 @@
             @foreach($latest as $arret)
                 <li>
                     <span class="date">{{ $arret->pub_date }}</span>
-                    <a href="{{ url('jurisprudence').'/#analyse_'.$last->reference }}">{{ $last->reference }}</a>
+                    <a href="{{ url('jurisprudence').'/#analyse_'.$arret->reference }}">{{ $arret->reference }}</a>
                     <p>{{ $arret->abstract }}</p>
                 </li>
             @endforeach
