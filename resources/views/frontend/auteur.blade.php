@@ -9,7 +9,7 @@
             @foreach($auteurs as $auteur)
             <div class="media media-author">
                 <div class="media-left">
-                    <img width="100" class="media-object" src="{{ $auteur->photo }}" alt="{{ $auteur->name }}">
+                    <img width="100" src="{{ $auteur->photo }}" alt="{{ $auteur->name }}">
                 </div>
                 <div class="media-body bio-body">
                     <h3 class="media-heading">{{ $auteur->name }}</h3>
