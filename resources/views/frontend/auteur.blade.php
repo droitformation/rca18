@@ -13,7 +13,7 @@
                 </div>
                 <div class="media-body bio-body">
                     <h3 class="media-heading">{{ $auteur->name }}</h3>
-                    <h5>{{ $auteur->occupation }}</h5>
+                    <h5>{!! $auteur->occupation !!}</h5>
                     <div class="bio_auteur">{!! $auteur->bio !!}</div>
 
                     <!-- Analyses from author -->
