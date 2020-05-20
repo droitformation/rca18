@@ -37,12 +37,6 @@ trait FetchData
 
             $this->helper->setMaj($last,$this->file);
         }
-        else{
-            echo '<pre>';
-            print_r($response->getStatusCode());
-            echo '</pre>';
-            exit;
-        }
 
         return $last;
     }

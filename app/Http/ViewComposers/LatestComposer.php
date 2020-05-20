@@ -32,7 +32,7 @@ class LatestComposer
     public function compose(View $view)
     {
         $api = new \App\Droit\Api\Jurisprudence(env('APP_SITE'));
-        $latest = $api->arrets(['limit' => 4]);
+        $latest = $api->latest(['limit' => 4]);
 
         $view->with('latest', $latest);
     }

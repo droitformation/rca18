@@ -17,7 +17,7 @@ class HomeController extends Controller
         $this->jurisprudence = new \App\Droit\Api\Jurisprudence(config('app.site'));
 
         $menu   = $this->content->menu('main');
-        $latest = $this->jurisprudence->arrets(['limit' => 4]);
+        $latest = $this->jurisprudence->arrets(['limit' => 4],'latest');
 
         view()->share('latest', $latest);
         view()->share('menu', $menu);
@@ -36,7 +36,7 @@ class HomeController extends Controller
     {
         $homepage = $this->content->homepage();
         $blocs    = $this->content->menu('home');
-        $arrets   = $this->jurisprudence->arrets(['limit' => 5]);
+        $arrets   = $this->jurisprudence->arrets(['limit' => 5],'index');
         $pub      = $homepage->blocs;
 
         return view('frontend.index')->with(['homepage' => $homepage, 'blocs' => $blocs, 'arrets' => $arrets, 'pub' => $pub]);
