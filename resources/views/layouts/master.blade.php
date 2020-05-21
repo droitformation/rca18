@@ -35,67 +35,70 @@
     </head>
 
     <body>
-    <div class="container">
-        <div id="blue-line"></div>
-            <!-- START HEADER -->
-            <div id="header-main">
-                 <a href="{{ url('/') }}" id="logo"><img src="{{ asset('images/rcassurances.svg') }}"></a>
-                @include('partials.navigation')
-                <a target="_blank" href="http://www2.unine.ch/droit"><img style="max-width: 100%;" src="{{ asset('images/UniNE_logo_90x58.png') }}" alt=""></a>
-            </div>
-            <!-- START CONTENT -->
+
+        <div class="main-wrapper">
+            <div class="container">
+                <div id="blue-line"></div>
+                <!-- START HEADER -->
+                <div id="header-main">
+                    <a href="{{ url('/') }}" id="logo"><img src="{{ asset('images/rcassurances.svg') }}"></a>
+                    @include('partials.navigation')
+                    <a target="_blank" href="http://www2.unine.ch/droit"><img style="max-width: 100%;" src="{{ asset('images/UniNE_logo_90x58.png') }}" alt=""></a>
+                </div>
+                <!-- START CONTENT -->
                 <section>
-                    @include('partials.message')
-                    <!-- Contenu -->
-                    @yield('content')
-                    <!-- Fin contenu -->
+
+                @include('partials.message')
+                <!-- Contenu -->
+                @yield('content')
+                <!-- Fin contenu -->
                 </section><!--END CONTENT-->
 
-                <hr/></div>
-                <!-- Soutien -->
+                <hr/>
+            </div>
+            <!-- Soutien -->
+            <div class="container">
+                <div class="row">
+                    @if(isset($pub))
+                        <?php $soutiens = collect($pub)->where('position','footer'); ?>
+                        @if(!$soutiens->isEmpty())
+                            @foreach($soutiens as $soutien)
+                                <div class="bloc-soutien bloc-soutien-footer">
+                                    <a target="_blank" href="{{ $soutien->url }}"><img height="50px" src="{{ $soutien->image }}" alt="{{ $soutien->title }}" /></a>
+                                    <h5>{{ $soutien->title }}</h5>
+                                    {!! strip_tags($soutien->content) !!}
+                                </div>
+                            @endforeach
+                        @endif
+                    @endif
+                </div><hr/>
+            </div>
+            <!-- Fin de soutien -->
+            <!-- START FOOTER -->
+            <footer>
                 <div class="container">
                     <div class="row">
-                        @if(isset($pub))
-                            <?php $soutiens = collect($pub)->where('position','footer'); ?>
-                            @if(!$soutiens->isEmpty())
-                                @foreach($soutiens as $soutien)
-                                    <div class="bloc-soutien bloc-soutien-footer">
-                                        <a target="_blank" href="{{ $soutien->url }}"><img height="50px" src="{{ $soutien->image }}" alt="{{ $soutien->title }}" /></a>
-                                        <h5>{{ $soutien->title }}</h5>
-                                        {!! strip_tags($soutien->content) !!}
-                                    </div>
-                                @endforeach
-                            @endif
-                        @endif
-                    </div><hr/>
-                </div>
-                <!-- Fin de soutien -->
-                <!-- START FOOTER -->
-                <footer>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <p class="text-center"><strong>Faculté de droit, Avenue du 1er-Mars 26, 2000 Neuchâtel</strong></p>
-                                <p class="text-center copyright">Copyright &copy; . Tous droits réservés.</p>
-                            </div><!--END ONE-->
-                        </div>
-                    </div><!--END SECTION-->
-                </footer><!--END FOOTER-->
-                <!-- END FOOTER -->
+                        <div class="col-md-12 text-center">
+                            <p class="text-center"><strong>Faculté de droit, Avenue du 1er-Mars 26, 2000 Neuchâtel</strong></p>
+                            <p class="text-center copyright">Copyright &copy; . Tous droits réservés.</p>
+                        </div><!--END ONE-->
+                    </div>
+                </div><!--END SECTION-->
+            </footer><!--END FOOTER-->
+            <!-- END FOOTER -->
 
-                @include('partials.logos', ['current' => 'rcassurances'])
+            @include('partials.logos', ['current' => 'rcassurances'])
+        </div>
 
-            </div>
-        </div><!-- END Container -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114403548-8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114403548-8"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-        gtag('config', 'UA-114403548-8');
-    </script>
+            gtag('config', 'UA-114403548-8');
+        </script>
 
     </body>
 </html>
