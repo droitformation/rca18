@@ -1,4 +1,3 @@
-
 @extends('layouts.master')
 @section('content')
 	<!-- Header et banner -->
