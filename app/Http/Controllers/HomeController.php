@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\SendMessageRequest;
 
-
-
 class HomeController extends Controller
 {
     protected $pages;
@@ -15,10 +13,15 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        $this->content  = new \App\Droit\Api\Content(env('APP_SITE'));
-        $this->jurisprudence = new \App\Droit\Api\Jurisprudence(env('APP_SITE'));
+        $this->content  = new \App\Droit\Api\Content(config('app.site'));
+        $this->jurisprudence = new \App\Droit\Api\Jurisprudence(config('app.site'));
 
-        $menu = $this->content->menu('main');
+        $menu   = $this->content->menu('main');
+        $latest = $this->jurisprudence->arrets(['limit' => 4],'latest');
+
+        view()->share('latest', $latest);
+        view()->share('menu', $menu);
+
         $this->pages = collect($menu->pages)->pluck('id','slug')->all();
 
         setlocale(LC_ALL, 'fr_FR.UTF-8');
@@ -33,7 +36,7 @@ class HomeController extends Controller
     {
         $homepage = $this->content->homepage();
         $blocs    = $this->content->menu('home');
-        $arrets   = $this->jurisprudence->arrets(['limit' => 5]);
+        $arrets   = $this->jurisprudence->arrets(['limit' => 5],'index');
         $pub      = $homepage->blocs;
 
         return view('frontend.index')->with(['homepage' => $homepage, 'blocs' => $blocs, 'arrets' => $arrets, 'pub' => $pub]);
@@ -90,7 +93,7 @@ class HomeController extends Controller
         $archives   = $this->jurisprudence->archives();
         $newsletter = $this->jurisprudence->campagne($id);
 
-        $blocs = isset($newsletter['blocs']) ? $newsletter['blocs'] : collect([]);
+        $blocs    = isset($newsletter['blocs']) ? $newsletter['blocs'] : collect([]);
         $campagne = isset($newsletter['campagne']) ? $newsletter['campagne'] : null;
 
         $page    = $this->content->page($this->pages['campagne']);
