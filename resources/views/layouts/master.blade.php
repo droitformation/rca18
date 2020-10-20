@@ -37,7 +37,6 @@
     <body>
 
         <div class="main-wrapper">
-
             <div class="container">
                 <div id="blue-line"></div>
                 <!-- START HEADER -->
