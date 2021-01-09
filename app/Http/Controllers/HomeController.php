@@ -139,7 +139,14 @@ class HomeController extends Controller
         $data = $request->only(['email','nom','remarque']);
 
         \Mail::send('emails.contact', $data , function($message) {
-            $message->to('info@rcassurances.ch', 'RC Assurances')->subject('Message depuis le site www.rcassurances.ch');
+           // $message->to('test-eheufy9q0@srv1.mail-tester.com', 'RC Assurances')
+             $message->to('info@rcassurances.ch', 'RC Assurances')
+			 //->cc('test-h2rwoivrf@srv1.mail-tester.com')
+            //->cc('carine.magne@unine.ch')
+           // ->cc('cristian.ferrara@unine.ch')
+           // ->cc('cindy.leschaud@unine.ch')
+
+            ->subject('Message depuis le site www.rcassurances.ch');
         });
 
         return redirect()->back()->with(['status' => 'success', 'message' => '<strong>Merci pour votre message</strong><br/>Nous vous contacterons dès que possible.']);
