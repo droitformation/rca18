@@ -13,6 +13,11 @@ trait FetchData
         }
 
         $last = $this->process($response,$current);
+        
+        \Cache::flush();
+        $this->toUpdate = true;
+        
+        return true;
 
         if($last != $current){
 
