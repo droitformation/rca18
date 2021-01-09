@@ -64,5 +64,4 @@ class Content
             return $this->getData('menu', $params);
         });
     }
-
 }

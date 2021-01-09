@@ -18,3 +18,5 @@ Route::get('contact', 'HomeController@contact');
 Route::get('jurisprudence', 'HomeController@jurisprudence');
 Route::get('campagne/{id?}', 'HomeController@campagne');
 Route::post('sendMessage', 'HomeController@sendMessage');
+
+Route::post('updateCache', 'HomeController@updateCache');

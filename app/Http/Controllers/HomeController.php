@@ -145,4 +145,11 @@ class HomeController extends Controller
         return redirect()->back()->with(['status' => 'success', 'message' => '<strong>Merci pour votre message</strong><br/>Nous vous contacterons dès que possible.']);
     }
 
+    public function updateCache()
+    {
+        dispatch(function () {
+            \Artisan::call('cache:clear');
+        });
+    }
+
 }
