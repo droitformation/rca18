@@ -17,7 +17,7 @@ set('ssh_multiplexing', false);
 
 // Shared files/dirs between deploys 
 add('shared_files', []);
-add('shared_dirs', []);
+add('shared_dirs', ['public/files','public/newsletter']);
 
 // Writable dirs by web server 
 set('writable_dirs', []);
